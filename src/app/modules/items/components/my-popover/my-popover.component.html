@@ -1,0 +1,8 @@
+<ion-grid>
+  <ion-row *ngFor="let field of summary;let i = index" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
+    <ion-col *ngIf="field.value"><p class="label">{{field.label}}</p></ion-col>
+    <ion-col>{{field.value}}</ion-col>
+
+  </ion-row>
+</ion-grid>
+<ion-button shape="round" (click)="reset()"><ion-icon name="refresh"></ion-icon></ion-button>

@@ -3,7 +3,6 @@ import { Value } from './value';
 import { ItemServiceInterface } from './ItemServiceInterface';
 import { AlertOptions } from '@ionic/core';
 import { ItemFilterOPtions } from './ItemFIlterOptions';
-import { QuickAction } from './QuickAction';
 import { MenuItem } from '../../helpers/menu/models/MenuItemInterface';
 
 export type Genere = 'o' | 'a';
@@ -39,18 +38,7 @@ export interface ItemModelInterface  extends MenuItem{
   // tslint:disable-next-line: jsdoc-format
   /**ritorna l'etichetta e il valore da visualizzare del campo aggregato **/
   /**@deprecated */
-  getAggregate?(): Value;
-  /**@deprecated */
-  aggregateAction?(): any | void;
-  /**
-   * @deprecated
-   */
-  hasQuickActions?(): boolean;
-  /**
-   * 
-   * @param key @deprecated
-   */
-  QuickAction?(key:string):undefined;
+
   serialize /*
   serialize the model for storing in firebase
   */():{};

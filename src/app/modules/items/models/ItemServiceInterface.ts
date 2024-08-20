@@ -23,7 +23,7 @@ export interface ItemServiceInterface {
      * @returns firebase.database reference
      * @deprecated
      */
-    getItem(key: string, next: (item?) => void): void;
+    getItem(key: string, next: (item?:ItemModelInterface) => void): void;
 
 
 /**
@@ -36,18 +36,18 @@ export interface ItemServiceInterface {
      * @param item: ItemModelInterface the item to update
      * @returns void
      */
-    updateItem(item: ItemModelInterface, ...documentKey: string[]);
+    updateItem(item: ItemModelInterface, ...documentKey: string[]):Promise<any>;
     /** delete an item on firebase database
      * @param key: string the item's key
      */
-    deleteItem(key: string, ...args: string[]);
+    deleteItem(key: string, ...args: string[]):Promise<void>;
 
     /** return a void item of the type handled by the service */
     getEmptyItem(): ItemModelInterface;
     /**aggiorna un item in firebase
      *
      */
-    setItem(item: ItemModelInterface, ...keys: string[]);
+    setItem(item: ItemModelInterface, ...keys: string[]):Promise<any>;
 
 
     /**
@@ -60,22 +60,22 @@ export interface ItemServiceInterface {
      * @param keys: string keys to indentify all thew subcollections
      *
      */
-    createItem(item: ItemModelInterface, ...keys: string[]);
+    createItem(item: ItemModelInterface, ...keys: string[]):Promise<any>;
     /**
      * @description  fetch the items from firestore
      * @param querySe: opzionale
      * @return ItemModelInterface[]
      *
      */
-    fetchItems?(querySet?):Promise<ItemModelInterface[]>
-    publish?(items:ItemModelInterface[])
+    fetchItems?(querySet?:any):Promise<ItemModelInterface[]>
+    publish?(items:ItemModelInterface[]):void
 
     /*@param eventHandler: funzione di callback che deve invocare publish*
      *
      * @param querySet  opzionale
      * @description
      */
-    realtimeFetchItems?(eventHandler:(result:{data:ItemModelInterface[],total:number})=>void,querySet)
+    realtimeFetchItems?(eventHandler:(result:{data:ItemModelInterface[],total:number})=>void,querySet:any):void
 
 
 }

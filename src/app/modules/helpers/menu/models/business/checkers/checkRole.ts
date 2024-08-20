@@ -1,4 +1,4 @@
-import { configs } from "src/app/configs/configs";
+import { configs } from "../../../../../../configs/configs";
 import { canAdd } from "../../canAddInterface";
 
 export class CheckRole implements canAdd {
@@ -9,7 +9,7 @@ export class CheckRole implements canAdd {
   canAdd(claims: { level?: number },locked?:boolean) {
     let out = false
     if(locked){
-      out = claims.level<= this.level
+      out = claims.level!<= this.level
     
 
     }
